@@ -2,12 +2,12 @@
   <div
     class="h-24 bg-[url('/Fond_Header_A2.png')] flex justify-center items-center"
   >
-    <div>
-      <img src="public/occurrens_altera.png" alt="" />
+    <!-- <div>
+        <img src="public/occurrens_altera.png" alt="" />
+        </div> -->
+    <div class="Header_A">
+      <p class="mask tracking-[2px]" title="OCCURENS ALTERA">OCCURENS ALTERA</p>
     </div>
-    <!-- <div class="Header_A">
-      <p class="mask" title="OCCURENS ALTERA">OCCURENS ALTERA</p>
-    </div> -->
   </div>
 </template>
 

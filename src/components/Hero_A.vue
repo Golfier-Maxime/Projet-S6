@@ -1,5 +1,16 @@
 <template>
-  <div>
-    <h1 class="">Découvre l'Histoire de l'autre</h1>
+  <div class="hero">
+    <h1 class="hero__font">Découvre l'Histoire de l'autre</h1>
   </div>
 </template>
+
+<style lang="scss">
+.hero {
+  display: flex;
+  justify-content: center;
+  &__font {
+    font-family: "Luxurious Roman", serif;
+    font-size: 30px;
+  }
+}
+</style>
