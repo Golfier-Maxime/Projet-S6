@@ -1,0 +1,26 @@
+<template>
+  <div
+    class="h-24 bg-[url('/Fond_Header_A2.png')] flex justify-center items-center"
+  >
+    <div>
+      <img src="public/occurrens_altera.png" alt="" />
+    </div>
+    <!-- <div class="Header_A">
+      <p class="mask" title="OCCURENS ALTERA">OCCURENS ALTERA</p>
+    </div> -->
+  </div>
+</template>
+
+<style>
+.Header_A {
+  font-family: "roman_font";
+  font-size: 40px;
+}
+.mask {
+  /* background-color: red; */
+  background: url("Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
