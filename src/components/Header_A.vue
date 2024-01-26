@@ -18,7 +18,7 @@
 }
 .mask {
   /* background-color: red; */
-  background: url("Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
+  background: url("/Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
