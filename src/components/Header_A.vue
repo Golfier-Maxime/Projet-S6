@@ -6,9 +6,7 @@
         <img src="public/occurrens_altera.png" alt="" />
         </div> -->
     <div class="">
-      <p class="Header_A mask tracking-[2px]" title="OCCURENS ALTERA">
-        OCCURENS ALTERA
-      </p>
+      <p class="Header_A mask tracking-[2px]">OCCURENS ALTERA</p>
     </div>
   </div>
 </template>
@@ -16,9 +14,9 @@
 <style>
 .mask {
   /* background-color: red; */
-  background: url("/Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
+  /* background: url("/Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 </style>
