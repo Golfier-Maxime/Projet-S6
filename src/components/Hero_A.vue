@@ -10,7 +10,7 @@
   justify-content: center;
   &__font {
     font-family: "Luxurious Roman", serif;
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 </style>

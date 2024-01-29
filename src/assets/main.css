@@ -4,6 +4,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -12,4 +13,10 @@
         url('/src/font/roman_font_7-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    
+}
+
+.Header_A {
+    font-family: "roman_font";
+    font-size: 34px;
 }
