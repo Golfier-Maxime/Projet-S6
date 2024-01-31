@@ -1,6 +1,5 @@
 <script setup>
 import Bouton_A from "@/components/Buttons/Bouton_A.vue";
-import Carousel from "@/components/Carousel.vue";
 </script>
 
 <template>
@@ -11,7 +10,7 @@ import Carousel from "@/components/Carousel.vue";
     </div>
     <Bouton_A></Bouton_A>
   </div>
-  <Carousel></Carousel>
+  
 </template>
 
 <style lang="scss">
