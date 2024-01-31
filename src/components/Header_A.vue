@@ -12,11 +12,16 @@
 </template>
 
 <style>
+.Header_A {
+  font-family: "roman_font";
+  font-size: 34px;
+}
+
 .mask {
   /* background-color: red; */
-  /* background: url("/Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
+  background: url("/Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
+  -webkit-text-fill-color: transparent;
 }
 </style>
