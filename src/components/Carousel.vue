@@ -50,8 +50,8 @@ import 'swiper/swiper-bundle.css';
 
     &__img {
         background-color: aqua;
-        height: 300px;
-        width: 250px;
+        height: 600px;
+        width: 1200px;
         margin-bottom: 30px;
     }
 }
