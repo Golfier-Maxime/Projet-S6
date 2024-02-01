@@ -9,7 +9,7 @@
       <img src="/Logo/Logo_EC.png" class="w-28" />
       <img src="/Logo/Logo_FUTUR.png" class="w-28" />
     </div>
-    <div class="bg-slate-800 h-[2px] rounded-sm mx-[10%] mt-6"></div>
+    <div class="bg-slate-200 h-[2px] rounded-sm mx-[10%] mt-6"></div>
     <div
       class="mx-4 lg:mx-0 flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-OpenSans"
     >
