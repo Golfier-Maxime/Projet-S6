@@ -10,7 +10,7 @@ import "swiper/swiper-bundle.css";
   <div class="flex justify-center">
     <h1 class="hero__title mt-36">Découvre l'Histoire de l'autre</h1>
   </div>
-  <swiper :slidesPerView="1">
+  <swiper :slidesPerView="1" class="mb-6">
     <swiper-slide>
       <div id="hero1" class="hero">
         <div class="hero__img flex">
@@ -75,7 +75,7 @@ import "swiper/swiper-bundle.css";
       <div id="hero5" class="hero">
         <div class="hero__img flex">
           <div class="flex flex-col justify-center items-center w-full mx-6">
-            <h2 class="hero__title-h2 mb-4">L'anenir</h2>
+            <h2 class="hero__title-h2 mb-4">L'avenir</h2>
             <img class="w-56" src="/Logo/Logo_FUTUR_W.png" alt="" />
             <Bouton_A class="mt-10"></Bouton_A>
           </div>

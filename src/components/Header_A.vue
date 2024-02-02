@@ -14,7 +14,7 @@
 <style>
 .Header_A {
   font-family: "Cinzel", serif;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 5px;
   font-size: 34px;
 }

@@ -9,13 +9,15 @@
 <style lang="scss">
 .btn {
   height: 50px;
-  width: 200px;
+  width: 250px;
   border-radius: 50px;
   transition: 0.3s;
-  background-image: url("/Fond_Btn_A.png");
+  background-image: url("/Fond_Header_A.png");
 
   &__text {
-    font-family: "roman_font";
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    letter-spacing: 5px;
     font-size: 30px;
   }
 }
