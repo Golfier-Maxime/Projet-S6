@@ -1,8 +1,8 @@
 <template>
   <div class="btn flex justify-center items-center mb-2">
-    <RouterLink to="/Etape1_A" class=""
-      ><p class="btn__text mask tracking-[2px]">COMMENCER</p>
-    </RouterLink>
+    <!-- <RouterLink to="/Etape1_A" class=""> -->
+    <p class="btn__text mask tracking-[2px]">COMMENCER</p>
+    <!-- </RouterLink> -->
   </div>
 </template>
 
