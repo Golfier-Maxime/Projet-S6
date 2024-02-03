@@ -1,16 +1,34 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { ref } from "vue";
 import Bouton_A from "@/components/Buttons/Bouton_A.vue";
 import "swiper/swiper-bundle.css";
 
-// Vous pouvez ajouter des configurations ici
+const mySwiper = ref(null);
+
+function goNext() {
+  mySwiper.value.swiper.slideNext();
+}
+
+function goPrev() {
+  mySwiper.value.swiper.slidePrev();
+}
 </script>
 
 <template>
   <div class="flex justify-center">
     <h1 class="hero__title mt-36">Découvre l'Histoire de l'autre</h1>
   </div>
-  <swiper :slidesPerView="1" class="mb-6">
+  <div class="flex justify-between mx-6 mt-[300px]">
+    <div>
+      <img class="w-[35px]" src="/left.svg" alt="" />
+      <!-- <p class="font-thin">Slide to Left</p> -->
+    </div>
+    <div class="">
+      <img class="w-[35px]" src="/right.svg" alt="" />
+    </div>
+  </div>
+  <swiper :slidesPerView="1" class="mb-6 mt-[-300px]" ref="mySwiper">
     <swiper-slide>
       <div id="hero1" class="hero">
         <div class="hero__img flex">
@@ -113,5 +131,9 @@ import "swiper/swiper-bundle.css";
     width: 1000px;
     margin-bottom: 30px;
   }
+}
+
+.navigation-button {
+  /* Stylez vos boutons ici */
 }
 </style>
