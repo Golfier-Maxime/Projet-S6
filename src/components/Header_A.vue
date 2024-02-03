@@ -1,13 +1,13 @@
 <template>
-  <div
-    class="index-header mt-[-2px] h-24 bg-[url('/Fond_Header_A2.png')] flex justify-center items-center fixed w-full"
-  >
+  <div class="index-header mt-[-2px] h-24 bg-[url('/Fond_Header_A2.png')] flex justify-center items-center fixed w-full">
     <!-- <div>
         <img src="public/occurrens_altera.png" alt="" />
         </div> -->
-    <div class="">
-      <p class="Header_A mask">OCCURENS <span class="mx-3"></span> ALTERA</p>
-    </div>
+    <RouterLink to="/" >
+      <div class="">
+        <p class="Header_A mask">OCCURENS <span class="mx-3"></span> ALTERA</p>
+      </div>
+    </RouterLink>
   </div>
 </template>
 

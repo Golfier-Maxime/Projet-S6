@@ -1,7 +1,7 @@
 <template>
   <div class="btn flex justify-center items-center mb-2">
     <!-- <RouterLink to="/Etape1_A" class=""> -->
-    <p class="btn__text mask tracking-[2px]">COMMENCER</p>
+    <p class="btn__text mask2 tracking-[2px]">COMMENCER</p>
     <!-- </RouterLink> -->
   </div>
 </template>
@@ -12,7 +12,8 @@
   width: 250px;
   border-radius: 50px;
   transition: 0.3s;
-  background-image: url("/Fond_Header_A.png");
+  
+  background-image: url("/Fond_Btn_A.png");
 
   &__text {
     font-family: "Cinzel", serif;
@@ -24,5 +25,13 @@
 .btn:hover {
   //   scale: 2.2;
   background-image: url("/Fond_Btn_Hover_A.png");
+}
+
+.mask2 {
+  /* background-color: red; */
+  background: url("/Fond_Or_A.jpg"), lightgray 50% / cover no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

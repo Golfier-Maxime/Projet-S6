@@ -11,3 +11,9 @@ import Footer from "@/components/Footer.vue";
     <Footer></Footer>
   </div>
 </template>
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+}
+</style>

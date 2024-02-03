@@ -35,8 +35,8 @@ function goPrev() {
           <div class="flex flex-col justify-center items-center w-full mx-6">
             <h2 class="hero__title-h2 mb-4">Antiquité</h2>
             <img class="w-56" src="/Logo/Logo_Antique_W.png" alt="" />
-            <RouterLink to="/Etape1_A" class=""
-              ><Bouton_A class="mt-10"></Bouton_A>
+            <RouterLink to="/Etape1_A" class="mt-10"
+              ><Bouton_A class=""></Bouton_A>
             </RouterLink>
           </div>
           <div class="flex justify-end">
