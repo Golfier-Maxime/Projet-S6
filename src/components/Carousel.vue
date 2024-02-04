@@ -2,6 +2,8 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
 import Bouton_A from "@/components/Buttons/Bouton_A.vue";
+import AI from "@/components/AI.vue";
+
 import "swiper/swiper-bundle.css";
 
 const mySwiper = ref(null);
@@ -16,8 +18,12 @@ function goPrev() {
 </script>
 
 <template>
+  
   <div class="flex justify-center">
     <h1 class="hero__title mt-36">Découvre l'Histoire de l'autre</h1>
+  </div>
+  <div class="mx-[300px] text-black">
+    <AI></AI>
   </div>
   <div class="flex justify-between mx-6 mt-[300px]">
     <div>
