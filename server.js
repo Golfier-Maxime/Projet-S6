@@ -26,6 +26,7 @@ app.post('/api/generate-image', async (req, res) => {
       model: "dall-e-3",
       prompt: prompt,
       n: 1,
+      size: "1024x1024",
       // Ajoutez d'autres paramètres spécifiques à la génération d'images ici
     });
     // Traitez et envoyez la réponse au client
