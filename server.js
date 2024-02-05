@@ -22,7 +22,7 @@ app.post('/api/generate-image', async (req, res) => {
 
   try {
     // Adaptez cette partie pour utiliser le bon modèle et les paramètres pour la génération d'images
-    const response = await openai.createImage({ // Cette méthode est à ajuster selon l'API spécifique de génération d'images
+    const response = await openai.images.generate({ // Cette méthode est à ajuster selon l'API spécifique de génération d'images
       model: "dall-e-3",
       prompt: prompt,
       n: 1,

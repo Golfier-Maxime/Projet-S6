@@ -18,13 +18,12 @@ function goPrev() {
 </script>
 
 <template>
-  
   <div class="flex justify-center">
     <h1 class="hero__title mt-36">Découvre l'Histoire de l'autre</h1>
   </div>
-  <div class="mx-[300px] text-black">
+  <!-- <div class="mx-[300px] text-black">
     <AI></AI>
-  </div>
+  </div> -->
   <div class="flex justify-between mx-6 mt-[300px]">
     <div>
       <img class="w-[35px]" src="/left.svg" alt="" />

@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 // État pour stocker le nom du personnage
-const characterName = ref('');
+const characterName = ref("");
 // État pour contrôler l'affichage du formulaire ou de l'histoire
 const nameEntered = ref(false);
 
@@ -10,9 +10,9 @@ const currentParagraphIndex = ref(0); // Index du paragraphe actuel
 
 // Fonction pour gérer la soumission du nom
 function submitName() {
-  if (characterName.value.trim() !== '') {
+  if (characterName.value.trim() !== "") {
     nameEntered.value = true;
-    console.log(characterName)
+    console.log(characterName);
   }
 }
 
@@ -23,16 +23,22 @@ function nextParagraph() {
 
 // Nombre total de paragraphes
 const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombre réel de paragraphes que vous avez
-
 </script>
 
 <template>
   <div>
     <!-- Formulaire pour entrer le nom du personnage -->
-    <div v-if="!nameEntered" class="flex flex-col items-center justify-center h-screen">
+    <div
+      v-if="!nameEntered"
+      class="flex flex-col items-center justify-center h-screen"
+    >
       <label for="name">Entrez le nom de votre personnage :</label>
-      <input v-model="characterName" id="name" type="text"
-        class="mt-2 shadow-sm  border-2 text-black border-gray-700  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5">
+      <input
+        v-model="characterName"
+        id="name"
+        type="text"
+        class="mt-2 shadow-sm border-2 text-black border-gray-700 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
+      />
       <button @click="submitName" class="mt-4">Commencer l'histoire</button>
     </div>
     <!-- Affichage de l'histoire avec le nom du personnage -->
@@ -45,91 +51,123 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
           <!-- Utilisez characterName pour insérer le nom du personnage dans l'histoire -->
           <!-- Affichage conditionnel des paragraphes basé sur currentParagraphIndex -->
           <div class="mt-8" v-if="currentParagraphIndex >= 0" id="p1">
-            <p>Dans une époque où les horizons s'étendent bien au-delà des confins de terres connues, je me trouve au cœur
-              d'une quête qui transcende les frontières de l'Empire romain, poussé par une curiosité insatiable et une
-              soif
-              de
-              connaissances sur les mystérieuses contrées de l'Est. Mon nom est <span id="nom" class="text-red-400">{{
-                characterName }}</span>, un
-              émissaire
-              de l'Empire romain,
-              choisi pour entreprendre un voyage périlleux vers l'Empire lointain des Han, une terre enveloppée de
-              mystère,
-              d'où proviennent des échos de richesses et de savoirs inimaginables.</p>
+            <p>
+              Dans une époque où les horizons s'étendent bien au-delà des
+              confins de terres connues, je me trouve au cœur d'une quête qui
+              transcende les frontières de l'Empire romain, poussé par une
+              curiosité insatiable et une soif de connaissances sur les
+              mystérieuses contrées de l'Est. Mon nom est
+              <span id="nom" class="text-red-400">{{ characterName }}</span
+              >, un émissaire de l'Empire romain, choisi pour entreprendre un
+              voyage périlleux vers l'Empire lointain des Han, une terre
+              enveloppée de mystère, d'où proviennent des échos de richesses et
+              de savoirs inimaginables.
+            </p>
           </div>
-          <div class="mt-8" v-if="currentParagraphIndex >= 1" id="p2">
-            <p id="p2">Mon périple commence à Rome, sous le règne d'Auguste, qui, intrigué par les récits de la soie la
-              plus fine
-              et
-              d'épices exotiques, me confie la mission de traverser les vastes déserts, les montagnes impénétrables, et
-              les
-              steppes sans fin, pour établir des liens avec l'Empire chinois des Han. Je suis accompagné par une garde de
-              légionnaires fidèles et des marchands expérimentés, chacun portant les espoirs et les rêves de notre grand
-              empire sur ses épaules.</p>
-          </div>
-          <div class="mt-8" v-if="currentParagraphIndex >= 2" id="p3">
-            <p id="p3">Nous voyageons d'abord vers l'est, à travers les Balkans, puis vers les territoires inexplorés
-              au-delà de
-              l'Anatolie. Chaque ville, chaque village que nous traversons, nous partageons des récits de notre empire
-              lointain, et en échange, nous récoltons des informations précieuses sur les routes à emprunter, les dangers
-              à
-              éviter. Nos nuits sont remplies d'étoiles inconnues, nos jours marqués par les défis de la nature et les
-              rencontres avec des peuples de cultures étonnamment diverses.</p>
-          </div>
-          <div class="mt-8" v-if="currentParagraphIndex >= 3" id="p4">
-            <p id="p4">Au fil du temps, nous nous frayons un chemin à travers les contrées de l'Asie centrale, où les
-              caravansérails
-              deviennent nos havres de repos. Nous échangeons des pièces romaines contre des guides locaux qui parlent de
-              villes où les toits brillent sous le soleil et où la soie est aussi commune que le tissu dans notre Rome
-              bien-aimée. Les légendes de l'Empire des Han se matérialisent peu à peu, alimentant notre détermination.</p>
-          </div>
-          <div class="mt-8" v-if="currentParagraphIndex >= 4" id="p5">
-            <p id="p5">Après de longs mois de voyage, nous atteignons finalement les frontières de l'Empire des Han. Ici,
-              je suis
-              émerveillé par l'ingéniosité et la splendeur de cette civilisation. Les marchés regorgent de produits
-              inconnus
-              à
-              Rome, les jardins sont d'une beauté sereine, et les palais rivalisent avec le Capitole lui-même en grandeur.
-              Je
-              suis reçu par des fonctionnaires des Han, intrigués par notre présence et désireux d'en savoir plus sur
-              notre
-              lointain empire.</p>
-          </div>
-          <div class="mt-8" v-if="currentParagraphIndex >= 5" id="p6">
-            <p id="p6">Mon rôle d'émissaire me voit engager dans d'innombrables discussions, où je partage des récits de
-              notre
-              gouvernement, notre culture, et nos avancées technologiques. En retour, je suis initié aux mystères de la
-              philosophie chinoise, à l'art de la guerre de Sun Tzu, et aux merveilles de la soie, que je promets de
-              ramener
-              à
-              Rome.</p>
-          </div>
-          <div class="mt-8" v-if="currentParagraphIndex >= 6" id="p7">
-            <p id="p7">À travers ces échanges, je réalise que, malgré les distances et les différences, une soif commune
-              de
-              connaissance et un respect mutuel pour la grandeur de nos civilisations unissent l'Empire romain et l'Empire
-              des
-              Han. Mon voyage, qui avait commencé comme une mission d'exploration et de commerce, se transforme en une
-              quête
-              personnelle de compréhension et de connexion entre deux des plus grands empires de l'histoire.</p>
-          </div>
-          <div class="mt-8 mb-16" v-if="currentParagraphIndex >= 7" id="p8">
-            <p id="p8">Lorsque je retourne finalement à Rome, chargé de présents et de récits de terres lointaines, je
-              suis
-              accueilli
-              comme un héros. Mais plus précieux que les richesses matérielles, je rapporte une vision élargie du monde,
-              un
-              témoignage de l'immense diversité et de l'interconnexion des peuples de la Terre. Mon voyage a tracé un
-              chemin
-              non seulement à travers des déserts et des montagnes mais aussi à travers les barrières invisibles de
-              l'incompréhension et de l'ignorance, pavant la voie à une nouvelle ère de dialogue et d'échange entre
-              l'Orient
-              et l'Occident.</p>
-          </div>
+          <transition name="fade" mode="out-in">
+            <div class="mt-8" v-if="currentParagraphIndex >= 1" id="p2">
+              <p id="p2">
+                Mon périple commence à Rome, sous le règne d'Auguste, qui,
+                intrigué par les récits de la soie la plus fine et d'épices
+                exotiques, me confie la mission de traverser les vastes déserts,
+                les montagnes impénétrables, et les steppes sans fin, pour
+                établir des liens avec l'Empire chinois des Han. Je suis
+                accompagné par une garde de légionnaires fidèles et des
+                marchands expérimentés, chacun portant les espoirs et les rêves
+                de notre grand empire sur ses épaules.
+              </p>
+            </div>
+          </transition>
+          <transition name="fade" mode="out-in"
+            ><div class="mt-8" v-if="currentParagraphIndex >= 2" id="p3">
+              <p id="p3">
+                Nous voyageons d'abord vers l'est, à travers les Balkans, puis
+                vers les territoires inexplorés au-delà de l'Anatolie. Chaque
+                ville, chaque village que nous traversons, nous partageons des
+                récits de notre empire lointain, et en échange, nous récoltons
+                des informations précieuses sur les routes à emprunter, les
+                dangers à éviter. Nos nuits sont remplies d'étoiles inconnues,
+                nos jours marqués par les défis de la nature et les rencontres
+                avec des peuples de cultures étonnamment diverses.
+              </p>
+            </div>
+          </transition>
+          <transition name="fade" mode="out-in"
+            ><div class="mt-8" v-if="currentParagraphIndex >= 3" id="p4">
+              <p id="p4">
+                Au fil du temps, nous nous frayons un chemin à travers les
+                contrées de l'Asie centrale, où les caravansérails deviennent
+                nos havres de repos. Nous échangeons des pièces romaines contre
+                des guides locaux qui parlent de villes où les toits brillent
+                sous le soleil et où la soie est aussi commune que le tissu dans
+                notre Rome bien-aimée. Les légendes de l'Empire des Han se
+                matérialisent peu à peu, alimentant notre détermination.
+              </p>
+            </div>
+          </transition>
+          <transition name="fade" mode="out-in"
+            ><div class="mt-8" v-if="currentParagraphIndex >= 4" id="p5">
+              <p id="p5">
+                Après de longs mois de voyage, nous atteignons finalement les
+                frontières de l'Empire des Han. Ici, je suis émerveillé par
+                l'ingéniosité et la splendeur de cette civilisation. Les marchés
+                regorgent de produits inconnus à Rome, les jardins sont d'une
+                beauté sereine, et les palais rivalisent avec le Capitole
+                lui-même en grandeur. Je suis reçu par des fonctionnaires des
+                Han, intrigués par notre présence et désireux d'en savoir plus
+                sur notre lointain empire.
+              </p>
+            </div>
+          </transition>
+          <transition name="fade" mode="out-in"
+            ><div class="mt-8" v-if="currentParagraphIndex >= 5" id="p6">
+              <p id="p6">
+                Mon rôle d'émissaire me voit engager dans d'innombrables
+                discussions, où je partage des récits de notre gouvernement,
+                notre culture, et nos avancées technologiques. En retour, je
+                suis initié aux mystères de la philosophie chinoise, à l'art de
+                la guerre de Sun Tzu, et aux merveilles de la soie, que je
+                promets de ramener à Rome.
+              </p>
+            </div>
+          </transition>
+          <transition name="fade" mode="out-in"
+            ><div class="mt-8" v-if="currentParagraphIndex >= 6" id="p7">
+              <p id="p7">
+                À travers ces échanges, je réalise que, malgré les distances et
+                les différences, une soif commune de connaissance et un respect
+                mutuel pour la grandeur de nos civilisations unissent l'Empire
+                romain et l'Empire des Han. Mon voyage, qui avait commencé comme
+                une mission d'exploration et de commerce, se transforme en une
+                quête personnelle de compréhension et de connexion entre deux
+                des plus grands empires de l'histoire.
+              </p>
+            </div>
+          </transition>
+          <transition name="fade" mode="out-in"
+            ><div class="mt-8 mb-16" v-if="currentParagraphIndex >= 7" id="p8">
+              <p id="p8">
+                Lorsque je retourne finalement à Rome, chargé de présents et de
+                récits de terres lointaines, je suis accueilli comme un héros.
+                Mais plus précieux que les richesses matérielles, je rapporte
+                une vision élargie du monde, un témoignage de l'immense
+                diversité et de l'interconnexion des peuples de la Terre. Mon
+                voyage a tracé un chemin non seulement à travers des déserts et
+                des montagnes mais aussi à travers les barrières invisibles de
+                l'incompréhension et de l'ignorance, pavant la voie à une
+                nouvelle ère de dialogue et d'échange entre l'Orient et
+                l'Occident.
+              </p>
+            </div>
+          </transition>
           <!-- Bouton pour passer au prochain paragraphe, caché après le dernier paragraphe -->
-          <button v-if="currentParagraphIndex < totalParagraphs - 1" @click="nextParagraph"
-            class="mt-4 mb-16 flex items-center">Suivant <img class="w-[35px] " src="/right.svg" alt="" /></button>
-
+          <button
+            v-if="currentParagraphIndex < totalParagraphs - 1"
+            @click="nextParagraph"
+            class="mt-4 mb-16 flex items-center"
+          >
+            Suivant <img class="w-[35px]" src="/right.svg" alt="" />
+          </button>
         </div>
       </div>
     </div>
@@ -137,5 +175,12 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 </template>
 
 <style lang="scss" scoped>
-
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
 </style>
