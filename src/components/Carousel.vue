@@ -21,9 +21,9 @@ function goPrev() {
   <div class="flex justify-center">
     <h1 class="hero__title mt-36">Découvre l'Histoire de l'autre</h1>
   </div>
-  <!-- <div class="mx-[300px] text-black">
+  <div class="mx-[300px] text-black">
     <AI></AI>
-  </div> -->
+  </div>
   <div class="flex justify-between mx-6 mt-[300px]">
     <div>
       <img class="w-[35px]" src="/left.svg" alt="" />
@@ -43,6 +43,9 @@ function goPrev() {
             <RouterLink to="/Etape1_A" class="mt-10"
               ><Bouton_A class=""></Bouton_A>
             </RouterLink>
+            <p class="mt-4">
+              La relation entre l'Empire Romain et l'Empire Chinois Han
+            </p>
           </div>
           <div class="flex justify-end">
             <img class="rounded-r-[30px]" src="/nike.webp" alt="" />
@@ -136,9 +139,5 @@ function goPrev() {
     width: 1000px;
     margin-bottom: 30px;
   }
-}
-
-.navigation-button {
-  /* Stylez vos boutons ici */
 }
 </style>

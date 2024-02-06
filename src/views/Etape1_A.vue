@@ -63,6 +63,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
               enveloppée de mystère, d'où proviennent des échos de richesses et
               de savoirs inimaginables.
             </p>
+            <div class="flex justify-center mt-3">
+              <img class="carousel__img" src="/illu/Rom1.webp" alt="" />
+            </div>
           </div>
           <transition name="fade" mode="out-in">
             <div class="mt-8" v-if="currentParagraphIndex >= 1" id="p2">
@@ -76,6 +79,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 marchands expérimentés, chacun portant les espoirs et les rêves
                 de notre grand empire sur ses épaules.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="carousel__img" src="/illu/Rom1.webp" alt="" />
+              </div>
             </div>
           </transition>
           <transition name="fade" mode="out-in"
@@ -175,6 +181,13 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 </template>
 
 <style lang="scss" scoped>
+.carousel {
+  &__img {
+    width: 400px;
+    border-radius: 10px;
+  }
+}
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
