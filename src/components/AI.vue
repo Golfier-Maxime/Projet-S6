@@ -1,12 +1,12 @@
 <template>
-  <div class="flex justify-center flex-col items-center">
+  <div class="flex justify-center flex-col items-center mx-10">
     <input
-      class="p-2 w-[600px]"
+      class="p-2 w-[400px] rounded-xl text-black"
       v-model="prompt"
       placeholder="La description de votre personnage"
     />
     <button class="btn-AI" @click="generateImage">Générer l'image</button>
-    <img v-if="imageUrl" :src="imageUrl" alt="Generated Content" />
+    <img class="w-[400px] mb-10" v-if="imageUrl" :src="imageUrl" alt="Generated Content" />
 
     <!-- <p v-if="imageUrl">{{ imageUrl }}</p> -->
   </div>
@@ -45,16 +45,12 @@ export default {
   margin-top: 16px;
   margin-bottom: 16px;
   padding: 10px;
-  // color: white;
+  color: black;
   background-color: white;
   border-radius: 15px;
   transition: 0.4s;
 }
 .btn-AI:hover {
-  background-color: linear-gradient(
-    rgba(48, 255, 0, 1) 0%,
-    rgba(241, 255, 0, 1) 46%
-  );
-  color: white;
+  box-shadow: inset 0px 5px 5px 0px rgba(0,0,0,0.5) ;
 }
 </style>
