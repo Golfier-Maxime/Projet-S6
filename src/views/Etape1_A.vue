@@ -2,23 +2,24 @@
 import { ref } from "vue";
 import AI from "@/components/AI.vue";
 import Login from "@/components/Login.vue";
+import { useGlobalStore } from "/store/global.js";
 
-
-
+const store = useGlobalStore();
+console.log(store.token);
 // État pour stocker le nom du personnage
-const characterName = ref("");
+// const characterName = ref("");
 // État pour contrôler l'affichage du formulaire ou de l'histoire
-const nameEntered = ref(false);
+// const nameEntered = ref(false);
 
 const currentParagraphIndex = ref(0); // Index du paragraphe actuel
 
 // Fonction pour gérer la soumission du nom
-function submitName() {
-  if (characterName.value.trim() !== "") {
-    nameEntered.value = true;
-    console.log(characterName);
-  }
-}
+// function submitName() {
+//   if (characterName.value.trim() !== "") {
+//     nameEntered.value = true;
+//     console.log(characterName);
+//   }
+// }
 
 // Fonction pour passer au prochain paragraphe
 function nextParagraph() {
@@ -30,8 +31,8 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 </script>
 
 <template>
-  <div >
-    <div>
+  <div>
+    <div v-if="!store.token" class="mb-96">
       <Login></Login>
     </div>
     <!-- Formulaire pour entrer le nom du personnage -->
@@ -43,8 +44,13 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
     </div> -->
     <!-- Affichage de l'histoire avec le nom du personnage -->
     <!-- v-else -->
-    <div class="story flex">
-      <div class=" mt-60 ">
+    <div v-else class="story flex">
+      <div class="mt-60">
+        <div class="flex justify-center">
+          <button class="btn-deco" @click="store.clearToken">
+            Déconnexion
+          </button>
+        </div>
         <div class="flex justify-center">
           <h1 class="hero__title mt-36">Ton héro</h1>
         </div>
@@ -65,8 +71,8 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
               transcende les frontières de l'Empire romain, poussé par une
               curiosité insatiable et une soif de connaissances sur les
               mystérieuses contrées de l'Est. Mon nom est
-              <span id="nom" class="text-red-400">characterName</span>, un émissaire de l'Empire romain, choisi pour
-              entreprendre un
+              <span id="nom" class="text-red-400">{{ store.pseudo }}</span
+              >, un émissaire de l'Empire romain, choisi pour entreprendre un
               voyage périlleux vers l'Empire lointain des Han, une terre
               enveloppée de mystère, d'où proviennent des échos de richesses et
               de savoirs inimaginables.
@@ -175,8 +181,11 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
             </div>
           </transition>
           <!-- Bouton pour passer au prochain paragraphe, caché après le dernier paragraphe -->
-          <button v-if="currentParagraphIndex < totalParagraphs - 1" @click="nextParagraph"
-            class="mt-4 mb-16 flex items-center">
+          <button
+            v-if="currentParagraphIndex < totalParagraphs - 1"
+            @click="nextParagraph"
+            class="mt-4 mb-16 flex items-center"
+          >
             Suivant <img class="w-[35px]" src="/right.svg" alt="" />
           </button>
         </div>
@@ -186,9 +195,8 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 </template>
 
 <style lang="scss" scoped>
-
-.Paragraph_img{
- width: 400px;
+.Paragraph_img {
+  width: 400px;
 }
 
 .fade-enter-from,
@@ -199,5 +207,17 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s;
+}
+.btn-deco {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 10px;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  transition: 0.4s;
+}
+.btn-deco:hover {
+  box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 </style>

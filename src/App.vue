@@ -2,6 +2,18 @@
 import { RouterLink, RouterView } from "vue-router";
 import Header_A from "@/components/Header_A.vue";
 import Footer from "@/components/Footer.vue";
+
+import { useGlobalStore } from "../store/global.js";
+import { onMounted } from "vue";
+
+// Accéder au store global
+const globalStore = useGlobalStore();
+
+onMounted(() => {
+  const token = localStorage.getItem("token");
+  const pseudo = localStorage.getItem("pseudo");
+  globalStore.setToken(JSON.parse(token), pseudo);
+});
 </script>
 
 <template>
@@ -14,6 +26,6 @@ import Footer from "@/components/Footer.vue";
 
 <style>
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 </style>
