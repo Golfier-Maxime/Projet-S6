@@ -50,6 +50,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
           <button class="btn-deco" @click="store.clearToken">
             Déconnexion
           </button>
+          <img :src="store.imageUrl" alt="">
+          <p>{{ store.imageUrl }}</p>
+          <p>{{ store.pseudo }}</p>
         </div>
         <div class="flex justify-center">
           <h1 class="hero__title mt-36">Ton héro</h1>

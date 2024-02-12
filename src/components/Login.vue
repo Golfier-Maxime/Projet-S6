@@ -1,7 +1,8 @@
 <template>
   <main class="pt-40">
+    <!-- <h1 class="m-5 hero__title text-3xl">Inscris toi et connecte toi pour découvrir</h1> -->
     <div>
-      <h2 class="m-5 font-bold text-3xl">Inscription</h2>
+      <h2 class="m-5 hero__title text-3xl">Inscription</h2>
 
       <form @submit.prevent="inscription" method="post" class="m-5">
         <input
@@ -41,7 +42,7 @@
     </div>
 
     <div>
-      <h2 class="m-5 font-bold text-3xl">Connexion</h2>
+      <h2 class="m-5 hero__title text-3xl">Connexion</h2>
 
       <form @submit.prevent="connexion" method="post" class="m-5">
         <input
@@ -92,12 +93,14 @@ const inscriptionData = ref({
   email: "",
   password: "",
   pseudo: "",
+  // imageUrl:"",
 });
 
 const loginData = ref({
   email: "",
   password: "",
   pseudo: "",
+  // imageUrl:"",
 });
 
 const connexion = async () => {
@@ -109,12 +112,13 @@ const connexion = async () => {
     // localStorage.setItem('token', JSON.stringify(response.data.userId))
     globalStore.setToken(response.data.userId, response.data.pseudo);
     console.log(response.data.pseudo);
-
+    // console.log(response.data.imageUrl);
     console.log(response.data.userId); // Handle the response as needed
     // Optionally, you can reset the form data after successful login
     loginData.value.email = "";
     loginData.value.password = "";
     loginData.value.pseudo = "";
+    // loginData.value.imageUrl = "";
   } catch (error) {
     console.error("Error during login:", error);
   }
