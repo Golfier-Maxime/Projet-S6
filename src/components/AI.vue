@@ -6,37 +6,41 @@
       placeholder="La description de votre personnage"
     />
     <button class="btn-AI" @click="generateImage">Générer l'image</button>
-    <img class="w-[400px] mb-10" v-if="imageUrl" :src="imageUrl" alt="Generated Content" />
+    <img
+      class="w-[400px] mb-10"
+      v-if="imageUrl"
+      :src="imageUrl"
+      alt="Generated Content"
+    />
 
     <!-- <p v-if="imageUrl">{{ imageUrl }}</p> -->
+    <!-- <p>{{ imageUrl }}</p> -->
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
 import axios from "axios";
+import { useGlobalStore } from "/store/global.js";
 
-export default {
-  data() {
-    return {
-      prompt: "",
-      imageUrl: null,
-    };
-  },
-  methods: {
-    async generateImage() {
-      try {
-        const response = await axios.post(
-          "http://localhost:3000/api/generate-image",
-          { prompt: this.prompt }
-        );
-        // Traitez la réponse pour extraire et afficher l'image
-        console.log(response, "coucou");
-        this.imageUrl = response.data.data[0].url; // Mettez à jour selon la structure de la réponse
-      } catch (error) {
-        console.error("Error generating image:", error);
-      }
-    },
-  },
+const store = useGlobalStore();
+const userId = store.token;
+console.log(store.token);
+
+const prompt = ref("");
+const imageUrl = ref(null);
+
+const generateImage = async () => {
+  try {
+    const response = await axios.post(
+      `http://localhost:3000/api/generate-image/${userId}`,
+      { prompt: prompt.value }
+    );
+    console.log(response, "coucou");
+    imageUrl.value = response.data.data[0].url; // Ajustez selon la structure de la réponse réelle
+  } catch (error) {
+    console.error("Error generating image:", error);
+  }
 };
 </script>
 
@@ -51,6 +55,6 @@ export default {
   transition: 0.4s;
 }
 .btn-AI:hover {
-  box-shadow: inset 0px 5px 5px 0px rgba(0,0,0,0.5) ;
+  box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 </style>

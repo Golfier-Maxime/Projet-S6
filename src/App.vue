@@ -12,7 +12,8 @@ const globalStore = useGlobalStore();
 onMounted(() => {
   const token = localStorage.getItem("token");
   const pseudo = localStorage.getItem("pseudo");
-  globalStore.setToken(JSON.parse(token), pseudo);
+  const imageUrl = localStorage.getItem("imageUrl");
+  globalStore.setToken(JSON.parse(token), pseudo, imageUrl);
 });
 </script>
 

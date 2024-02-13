@@ -8,7 +8,7 @@ export const useGlobalStore = defineStore("global", {
     imageUrl: null,
   }),
   actions: {
-    setToken(token, pseudo) {
+    setToken(token, pseudo, imageUrl) {
       if (token) {
         this.token = token;
         localStorage.setItem("token", JSON.stringify(this.token));
@@ -17,15 +17,15 @@ export const useGlobalStore = defineStore("global", {
         this.pseudo = pseudo;
         localStorage.setItem("pseudo", this.pseudo);
       }
-      // if (imageUrl) {
-      //   this.imageUrl = imageUrl;
-      //   localStorage.setItem("imageUrl", this.imageUrl);
-      // }
+      if (imageUrl) {
+        this.imageUrl = imageUrl;
+        localStorage.setItem("imageUrl", this.imageUrl);
+      }
     },
     clearToken() {
       this.token = null;
       this.pseudo = null;
-      // this.imageUrl = null;
+      this.imageUrl = null;
       localStorage.setItem("token", JSON.stringify(this.token));
       localStorage.setItem("pseudo", this.pseudo);
       localStorage.setItem("imageUrl", this.imageUrl);

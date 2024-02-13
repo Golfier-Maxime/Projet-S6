@@ -110,7 +110,11 @@ const connexion = async () => {
       loginData.value
     );
     // localStorage.setItem('token', JSON.stringify(response.data.userId))
-    globalStore.setToken(response.data.userId, response.data.pseudo);
+    globalStore.setToken(
+      response.data.userId,
+      response.data.pseudo,
+      response.data.imageUrl
+    );
     console.log(response.data.pseudo);
     // console.log(response.data.imageUrl);
     console.log(response.data.userId); // Handle the response as needed

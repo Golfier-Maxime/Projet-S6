@@ -1,11 +1,23 @@
 <script setup>
 import { ref } from "vue";
+import { watch } from "vue";
 import AI from "@/components/AI.vue";
 import Login from "@/components/Login.vue";
 import { useGlobalStore } from "/store/global.js";
 
 const store = useGlobalStore();
 console.log(store.token);
+console.log(store.pseudo);
+console.log(store.imageUrl, "imageUrl");
+
+// watch(
+//   () => store.imageUrl,
+//   (newImageUrl) => {
+//     console.log("Nouvelle imageUrl:", newImageUrl);
+//     // Ici, vous pouvez ajouter une logique supplémentaire qui réagit au changement de l'image URL.
+//   }
+// );
+
 // État pour stocker le nom du personnage
 // const characterName = ref("");
 // État pour contrôler l'affichage du formulaire ou de l'histoire
@@ -46,18 +58,23 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
     <!-- v-else -->
     <div v-else class="story flex">
       <div class="mt-60">
-        <div class="flex justify-center">
-          <button class="btn-deco" @click="store.clearToken">
+        <div class="flex flex-col items-center">
+          <button class="btn-deco mx-2 w-[200px]" @click="store.clearToken">
             Déconnexion
           </button>
-          <img :src="store.imageUrl" alt="">
-          <p>{{ store.imageUrl }}</p>
-          <p>{{ store.pseudo }}</p>
+          <img
+            class="mx-2 w-[440px] rounded-2xl"
+            :src="store.imageUrl"
+            alt=""
+          />
+          <!-- <p class="mx-2">imageUrl : {{ store.imageUrl }}</p> -->
+
+          <!-- <p class="mx-2">pseudo : {{ store.pseudo }}</p> -->
         </div>
         <div class="flex justify-center">
-          <h1 class="hero__title mt-36">Ton héro</h1>
+          <h1 class="hero__title mt-36">Ton héros</h1>
         </div>
-        <AI></AI>
+        <AI v-if="store.imageUrl"></AI>
       </div>
       <div class="bg-slate-300 w-[20px]"></div>
       <div class="mx-[100px]">
@@ -200,6 +217,7 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 <style lang="scss" scoped>
 .Paragraph_img {
   width: 400px;
+  border-radius: 20px;
 }
 
 .fade-enter-from,

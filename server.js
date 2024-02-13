@@ -43,7 +43,7 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/inscription", (req, res) => {
-  const { email, password, pseudo} = req.body;
+  const { email, password, pseudo } = req.body;
 
   // Validate the incoming data (you should add more validation)
   if (!email || !password || !pseudo) {
@@ -64,34 +64,39 @@ app.post("/inscription", (req, res) => {
 app.post("/connexion", (req, res) => {
   const { email, password } = req.body;
 
-  // Validate the incoming data (you should add more validation)
+  // Validate the incoming data
   if (!email || !password) {
     return res.status(400).json({ message: "Invalid data" });
   }
 
-  // Check if the user exists and validate the password
-  const selectUserQuery = "SELECT * FROM User WHERE email = ? AND password = ?";
-  db.get(selectUserQuery, [email, password], (err, user) => {
+  const combinedQuery = `
+    SELECT User.*, GeneratedImages.imageUrl 
+    FROM User
+    LEFT JOIN GeneratedImages ON User.userId = GeneratedImages.userId
+    WHERE User.email = ? AND User.password = ?
+  `;
+
+  db.get(combinedQuery, [email, password], (err, result) => {
     if (err) {
       console.error("Error during user login:", err.message);
       return res.status(500).json({ message: "Internal server error" });
     }
-
-    if (!user) {
+    if (!result) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
-
-    res.json({ userId: user.userId, token: user.userId, pseudo: user.pseudo, imageUrl: user.imageUrl });
-    console.log(user.userId);
-    // res.json({ token: user.userId });
-    // console.log(token);
+    console.log(result.userId, "userId", result.imageUrl, "imageUrl");
+    res.json({
+      userId: result.userId,
+      pseudo: result.pseudo,
+      imageUrl: result.imageUrl,
+      // Ajoutez d'autres propriétés au besoin
+    });
   });
 });
 
-app.post("/api/generate-image", async (req, res) => {
+app.post("/api/generate-image/:userId", async (req, res) => {
   const { prompt } = req.body;
-
-
+  const { userId } = req.params;
 
   if (!prompt) {
     return res.status(400).json({ message: "Prompt is required" });
@@ -107,28 +112,27 @@ app.post("/api/generate-image", async (req, res) => {
     });
 
     const imageUrl = response.data[0].url;
-    // const insertUserQuery = "INSERT INTO User (imageUrl, prompt) VALUES (?, ?)"; 
+    const insertUserQuery =
+      "INSERT INTO GeneratedImages (imageUrl, prompt, userId) VALUES (?, ?, ?)";
     // WHERE userId = ?
-    const updateQuery = "UPDATE User SET imageUrl = ?, prompt = ? ";
-    // db.run(insertUserQuery, [imageUrl, prompt], function (err) {
-    db.run(updateQuery, [imageUrl, prompt], function (err) {
+    // const updateQuery = "UPDATE User SET imageUrl = ?, prompt = ?";
+    db.run(insertUserQuery, [imageUrl, prompt, userId], function (err) {
+      // db.run(updateQuery, [imageUrl, prompt, userId], function (err) {
       if (err) {
         console.error("Error during url+prompt:", err.message);
         return res.status(500).json({ message: "Internal server error" });
       }
     });
 
-
     console.log(response);
     // console.log(response.data[0].url)
     // Exemple de traitement de la réponse - ajustez selon la structure réelle
     // Supposons que la réponse contienne une URL directe ou des données encodées
-    
+
     // Ajustez ce chemin selon la réponse réelle
 
     res.status(200).json(response);
     // res.json({ imageUrl: user.imageUrl });
-
   } catch (error) {
     console.error("Error calling OpenAI API:", error);
     res.status(500).json({ message: "Error generating image" });
