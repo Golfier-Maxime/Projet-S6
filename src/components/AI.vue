@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center flex-col items-center mx-10">
+  <div class="flex justify-center flex-col items-center mx-10 mt-10">
     <input
       class="p-2 w-[400px] rounded-xl text-black"
       v-model="prompt"

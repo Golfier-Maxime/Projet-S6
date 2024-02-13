@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const openai = new OpenAI({
   apiKey: process.env.VITE_OPENAI_API_KEY,
 });
+// console.log(openai)
 
 const db = new sqlite3.Database("./database/OA_DB.db", (err) => {
   if (err) {

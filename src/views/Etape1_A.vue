@@ -57,7 +57,10 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
     <!-- Affichage de l'histoire avec le nom du personnage -->
     <!-- v-else -->
     <div v-else class="story flex">
-      <div class="mt-60">
+      <div class="mt-60 mx-10">
+        <div class="flex justify-center ">
+          <h1 class="hero__title">Ton héros</h1>
+        </div>
         <div class="flex flex-col items-center">
           <button class="btn-deco mx-2 w-[200px]" @click="store.clearToken">
             Déconnexion
@@ -71,10 +74,8 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
 
           <!-- <p class="mx-2">pseudo : {{ store.pseudo }}</p> -->
         </div>
-        <div class="flex justify-center">
-          <h1 class="hero__title mt-36">Ton héros</h1>
-        </div>
-        <AI v-if="store.imageUrl"></AI>
+        
+        <AI ></AI>
       </div>
       <div class="bg-slate-300 w-[20px]"></div>
       <div class="mx-[100px]">
