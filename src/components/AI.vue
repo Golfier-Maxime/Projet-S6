@@ -7,7 +7,7 @@
     />
     <button class="btn-AI" @click="generateImage">Générer l'image</button>
     <img
-      class="w-[400px] mb-10"
+      class="w-[400px] mb-10 rounded-2xl"
       v-if="imageUrl"
       :src="imageUrl"
       alt="Generated Content"

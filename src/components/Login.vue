@@ -5,6 +5,7 @@
       <h2 class="m-5 hero__title text-3xl">Inscription</h2>
 
       <form @submit.prevent="inscription" method="post" class="m-5">
+        <p v-if="successMessage" class="m-5 text-green-500">{{ successMessage }}</p>
         <input
           class="border-black border-2 px-2 py-1 mx-2 my-1 rounded-lg text-black"
           v-model="inscriptionData.email"
@@ -39,6 +40,7 @@
           class="border-black border-2 px-2 py-1 mx-2 my-1 rounded-lg"
         />
       </form>
+     
     </div>
 
     <div>
@@ -69,8 +71,10 @@
           value="Connexion"
           class="border-black border-2 px-2 py-1 mx-2 my-1 rounded-lg"
         />
+        
+    
       </form>
-      <!-- <p>{{ response.data.userId }}</p> -->
+
     </div>
   </main>
 </template>
@@ -79,7 +83,6 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useGlobalStore } from "/store/global.js";
-
 // Accéder au store global
 const globalStore = useGlobalStore();
 // console.log(globalStore.token);
@@ -129,12 +132,15 @@ const connexion = async () => {
 };
 
 const inscription = async () => {
+  // alert("vous vous êtes inscrit ! Connectez-vous !");
   try {
+    
     const response = await axios.post(
       "http://localhost:3000/inscription",
       inscriptionData.value
     );
-
+    
+// Mise à jour du message de succès après l'inscription réussie
     console.log(response.data); // You can handle the response as needed
 
     // Optionally, you can reset the form data after successful submission

@@ -115,7 +115,7 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 de notre grand empire sur ses épaules.
               </p>
               <div class="flex justify-center mt-3">
-                <img class="Paragraph_img" src="/illu/Rom1.webp" alt="" />
+                <img class="Paragraph_img" src="/illu/Rom2.webp" alt="" />
               </div>
             </div>
           </transition>
@@ -131,6 +131,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 nos jours marqués par les défis de la nature et les rencontres
                 avec des peuples de cultures étonnamment diverses.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="Paragraph_img" src="/illu/Rom3.webp" alt="" />
+              </div>
             </div>
           </transition>
           <transition name="fade" mode="out-in">
@@ -144,6 +147,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 notre Rome bien-aimée. Les légendes de l'Empire des Han se
                 matérialisent peu à peu, alimentant notre détermination.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="Paragraph_img" src="/illu/Rom4.webp" alt="" />
+              </div>
             </div>
           </transition>
           <transition name="fade" mode="out-in">
@@ -158,6 +164,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 Han, intrigués par notre présence et désireux d'en savoir plus
                 sur notre lointain empire.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="Paragraph_img" src="/illu/Rom5.webp" alt="" />
+              </div>
             </div>
           </transition>
           <transition name="fade" mode="out-in">
@@ -170,6 +179,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 la guerre de Sun Tzu, et aux merveilles de la soie, que je
                 promets de ramener à Rome.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="Paragraph_img" src="/illu/Rom8.webp" alt="" />
+              </div>
             </div>
           </transition>
           <transition name="fade" mode="out-in">
@@ -183,6 +195,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 quête personnelle de compréhension et de connexion entre deux
                 des plus grands empires de l'histoire.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="Paragraph_img" src="/illu/Rom6.webp" alt="" />
+              </div>
             </div>
           </transition>
           <transition name="fade" mode="out-in">
@@ -199,6 +214,9 @@ const totalParagraphs = 8; // Assurez-vous de définir cela en fonction du nombr
                 nouvelle ère de dialogue et d'échange entre l'Orient et
                 l'Occident.
               </p>
+              <div class="flex justify-center mt-3">
+                <img class="Paragraph_img" src="/illu/Rom7.webp" alt="" />
+              </div>
             </div>
           </transition>
           <!-- Bouton pour passer au prochain paragraphe, caché après le dernier paragraphe -->

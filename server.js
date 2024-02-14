@@ -45,7 +45,6 @@ app.get("/users", (req, res) => {
 
 app.post("/inscription", (req, res) => {
   const { email, password, pseudo } = req.body;
-
   // Validate the incoming data (you should add more validation)
   if (!email || !password || !pseudo) {
     return res.status(400).json({ message: "Invalid data" });
